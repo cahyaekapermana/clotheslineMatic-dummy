@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Timer</title>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">ClothesLineMatic</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="home.html">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="weather.html">Weather <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="timer.html">Timer <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="tutor.html">Petunjuk<span class="sr-only">(current)</span></a>
+          </li>
+          </ul>
+        </div>
+      </nav>
+      <!-- body -->
+      <!-- Card Status -->
+      <br>
+        <!-- <timer> -->
+          <div class="container">
+            <div class="card">
+                <div class="card-header" align="center">
+                  Timer
+                </div>
+                <div class="card-body" align="center">
+                    <input class="form" type="text" id="jam" style="width: 40px"> jam
+                    <input type="text" id="menit" style="width: 40px"> menit
+                    <input type="text" id="detik" style="width: 40px"> detik
+                    <button onclick="clickOk()" class="btn btn-primary">Proses</button>
+                    <br>
+                    <span id="countdown1">0</span> jam : 
+                    <span id="countdown2">0</span> menit : 
+                    <span id="countdown3">0</span> detik
+                </div>
+              </div>
+          </div>
+          <br>
+        <!-- </timer> -->
+    <!-- Footer -->
+    <div align="center"class="card-footer text-muted" style="font-size: small;">
+        App Copyright @cahyaekapermana @anjassurya @irfak
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script type="text/javascript">
+function clickOk(){
+var jam = document.getElementById("jam").value;
+var menit = document.getElementById("menit").value;
+var detik = document.getElementById("detik").value;
+
+setInterval(function() {
+if (detik == 0 && (menit > 0 || jam > 0)) {
+	detik = 59;
+	menit--;
+}else {
+	if(detik>0){
+    	detik--;
+    }
+	else{
+    detik = menit = jam = 0;
+    }
+}
+if (menit == 0 && jam > 0) {
+menit = 59;
+jam--;
+}
+
+
+
+document.getElementById("countdown1").innerHTML = jam;
+document.getElementById("countdown2").innerHTML = menit;
+document.getElementById("countdown3").innerHTML = detik;
+
+document.getElementById("jam").value = "";
+document.getElementById("menit").value = "";
+document.getElementById("detik").value = "";
+}, 1000);
+
+}
+
+</script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+  </body>
+</html>
